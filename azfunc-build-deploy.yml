@@ -1,9 +1,11 @@
 trigger:
-- {{ branch }}
+  branches:
+    include:
+    - master
 
 variables:
   vmImageName: 'ubuntu-18.04'
-  azureSubscription: '{{ azureRmConnection.Id }}'
+  azureSubscription: confxapp
   functionAppName: 'az400-m11-funcapp-14459'
 
 stages:
