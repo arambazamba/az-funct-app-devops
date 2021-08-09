@@ -53,7 +53,7 @@ stages:
         scriptType: 'bash'
         scriptLocation: 'scriptPath'
         scriptPath: '$(System.DefaultWorkingDirectory)/az-cli/provision.sh'
-        arguments: '$rnd'
+        arguments: $rnd
 
 - stage: Deploy
   displayName: Deploy stage
