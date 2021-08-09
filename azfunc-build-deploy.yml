@@ -49,9 +49,11 @@ stages:
     - task: AzureCLI@2
       displayName: 'Provision FxApp'
       inputs:
-        azureSubscription: $(subscr)
-        scriptType: bash
-        scriptPath: '$(System.DefaultWorkingDirectory)/az-cli/provision.sh $rnd'
+        azureSubscription: '$(subscr)'
+        scriptType: 'bash'
+        scriptLocation: 'scriptPath'
+        scriptPath: '$(System.DefaultWorkingDirectory)/az-cli/provision.sh'
+        arguments: '$rnd'
 
 - stage: Deploy
   displayName: Deploy stage
