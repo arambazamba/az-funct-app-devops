@@ -3,6 +3,8 @@ loc=westeurope
 app=m11funcapp-$1
 storage=m11funcapp$1
 
+echo $1
+
 az group create -n $grp -l $loc
 
 az storage account  create -n $storage -g $grp --sku Standard_LRS
