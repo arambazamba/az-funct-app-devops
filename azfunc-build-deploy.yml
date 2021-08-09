@@ -61,4 +61,3 @@ stages:
               appType: functionAppLinux
               appName: $(functionAppName)
               package: '$(Pipeline.Workspace)/drop/$(Build.BuildId).zip'
-© 2021 GitHub, Inc.      
