@@ -4,7 +4,7 @@ trigger:
     - master
 
 variables:
-  azureSubscription: confxapp
+  subscr: confxapp
   functionAppName: m11funcapp-14459
 
 pool:
@@ -12,7 +12,7 @@ pool:
 
 stages:
 - stage: Build
-  displayName: Build stage
+  displayName: Build and Provision
   jobs:
   - job: Build
     displayName: Build
@@ -40,6 +40,16 @@ stages:
 
     - upload: $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip
       artifact: drop
+  
+  - job: Provision
+
+    steps:
+    - task: AzureCLI@2
+      displayName: 'Create Api'
+      inputs:
+        azureSubscription: $(subscr)
+        scriptType: bash
+        scriptPath: '$(System.DefaultWorkingDirectory)/_github/az-cli/provision.sh'
 
 - stage: Deploy
   displayName: Deploy stage
@@ -56,7 +66,7 @@ stages:
           - task: AzureFunctionApp@1
             displayName: 'Azure Functions App Deploy: {{ functionAppName }}'
             inputs:
-              azureSubscription: '$(azureSubscription)'
+              azureSubscription: $(subscr)
               appType: functionAppLinux
               appName: $(functionAppName)
               package: '$(Pipeline.Workspace)/drop/$(Build.BuildId).zip'
