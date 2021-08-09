@@ -45,11 +45,11 @@ stages:
 
     steps:
     - task: AzureCLI@2
-      displayName: 'Create Api'
+      displayName: 'Provision FxApp'
       inputs:
         azureSubscription: $(subscr)
         scriptType: bash
-        scriptPath: '$(System.DefaultWorkingDirectory)/_github/az-cli/provision.sh'
+        scriptPath: '$(System.DefaultWorkingDirectory)/az-funct-app-devops/az-cli/provision.sh'
 
 - stage: Deploy
   displayName: Deploy stage
