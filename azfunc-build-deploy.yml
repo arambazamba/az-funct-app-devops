@@ -44,6 +44,8 @@ stages:
   - job: Provision
 
     steps:
+    
+    - bash: ls
     - task: AzureCLI@2
       displayName: 'Provision FxApp'
       inputs:
