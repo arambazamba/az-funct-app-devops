@@ -44,8 +44,6 @@ stages:
   - job: Provision
 
     steps:
-    
-    - bash: rnd=$RANDOM
     - task: AzureCLI@2
       displayName: 'Provision FxApp'
       inputs:
@@ -53,7 +51,6 @@ stages:
         scriptType: 'bash'
         scriptLocation: 'scriptPath'
         scriptPath: '$(System.DefaultWorkingDirectory)/az-cli/provision.sh'
-        arguments: '$rnd'
 
 - stage: Deploy
   displayName: Deploy stage
