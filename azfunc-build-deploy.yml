@@ -45,7 +45,7 @@ stages:
 
     steps:
     
-    - bash: export rnd=$RANDOM
+    - bash: rnd=$RANDOM
     - task: AzureCLI@2
       displayName: 'Provision FxApp'
       inputs:
