@@ -1,9 +1,8 @@
-grp=az400-m11-funcapp-$1
+rnd=14459
+grp=az400-m11-funcapp-$rnd
 loc=westeurope
-app=m11funcapp-$1
-storage=m11funcapp$1
-
-echo $1
+app=m11funcapp-$rnd
+storage=m11funcapp$rnd
 
 az group create -n $grp -l $loc
 
