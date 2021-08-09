@@ -6,7 +6,7 @@ trigger:
 variables:
   vmImageName: 'ubuntu-18.04'
   azureSubscription: confxapp
-  functionAppName: 'az400-m11-funcapp-14459'
+  functionAppName: m11funcapp-14459
 
 stages:
 - stage: Build
