@@ -45,13 +45,13 @@ stages:
 
     steps:
     
-    - bash: ls
+    - bash: export rnd=$RANDOM
     - task: AzureCLI@2
       displayName: 'Provision FxApp'
       inputs:
         azureSubscription: $(subscr)
         scriptType: bash
-        scriptPath: '$(System.DefaultWorkingDirectory)/az-cli/provision.sh'
+        scriptPath: '$(System.DefaultWorkingDirectory)/az-cli/provision.sh $rnd'
 
 - stage: Deploy
   displayName: Deploy stage
