@@ -58,7 +58,7 @@ stages:
   condition: succeeded()
   jobs:
   - deployment: Deploy
-    environment: Production
+    environment: funcapp-production
     displayName: Deploy
     strategy:
       runOnce:
